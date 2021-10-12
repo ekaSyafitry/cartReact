@@ -86,6 +86,7 @@ function App(props) {
       })
     }
   }
+
   const updateCart = (id, event, type) =>{
     let qty = 0
     if(parseInt(event.target.value)) qty = parseInt(event.target.value)
@@ -104,8 +105,7 @@ function App(props) {
           cartList[indexObj].qty = qty
         }
         
-        setCartItem(cartList)
-        localStorage.setItem("cart", JSON.stringify(cartList))
+        setToLocalStorage(cartList)
     }
     else if(type === 'add'){
       const isOOS = checkIsOutOfStock(id, cartList[indexObj].qty)
@@ -115,17 +115,15 @@ function App(props) {
       }else{
         cartList[indexObj].qty += 1
       }
-      setCartItem(cartList)
-      localStorage.setItem("cart", JSON.stringify(cartList))
+      setToLocalStorage(cartList)
     }
     else{
       if(cartList[indexObj].qty > 1){
         cartList[indexObj].qty -= 1
-        setCartItem(cartList)
-        localStorage.setItem("cart", JSON.stringify(cartList))
+        setToLocalStorage(cartList)
       }
       else if(cartList[indexObj].qty <= 1 ){
-        deleteCart(id, cartList)     
+        deleteCart(id, cartList, )     
       }     
     } 
   }
@@ -133,22 +131,34 @@ function App(props) {
   const deleteCart = (idCart, cartList) => {
     if (window.confirm('Apakah kamu yakin ingin menghapus produk dari keranjang?')) {
       let deletedArray =  cartList.filter(({ id }) => id !== idCart);
-      setCartItem(deletedArray)
-      localStorage.setItem("cart", JSON.stringify(deletedArray))
+      setToLocalStorage(deletedArray)
       setarrayCart(deletedArray)   
+      return true
     } else {
-      return
+
+      return  false
     }
     
   }
 
   const updateIfNull = (e, id, list) =>{
     if (e.target.value  === '0'){
-      deleteCart(id, list)
+      const deleted = deleteCart(id, list )
+      if(!deleted){
+        let cartList = [...list]
+        let indexObj = cartList.findIndex((obj => obj.id === id))
+        cartList[indexObj].qty = 1
+        setToLocalStorage(cartList)
+      }
     }
     if(e.target.value.length >= 2){  
       e.target.value= e.target.value.replace(/^0+/, '')
     }
+  }
+
+  const setToLocalStorage = (carts) => {
+    setCartItem(carts)
+    localStorage.setItem("cart", JSON.stringify(carts))
   }
 
   return (
@@ -190,7 +200,7 @@ function App(props) {
                     <div className="inputgroup" style={{display: 'flex', marginTop: '1rem'}}>
                       <button onClick={(e) => updateCart(item.id, e, 'decrease')}>-</button><input type="number" value={item.qty} onChange={(e) => updateCart(item.id, e, 'edit')} style={{width: `50%`}} onBlur={(e) => updateIfNull(e, item.id, cartItem)}></input> <button onClick={(e) => updateCart(item.id, e, 'add')}>+</button>
                     </div>
-                    <i className="fas fa-trash" style={{marginTop: '2rem', cursor: 'pointer'}} onClick={() => deleteCart(item.id, cartItem)}></i>
+                    <i className="fas fa-trash" style={{marginTop: '2rem', cursor: 'pointer'}} onClick={(e) => deleteCart(item.id, cartItem)}></i>
                   </div>
                 </div>
               ))
