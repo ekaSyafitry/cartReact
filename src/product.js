@@ -1,0 +1,73 @@
+let productList = [
+      {
+        "id" : 1,
+        "name": "Minyak Goreng Bimoli 2 Liter Pouch",
+        "price": 33000,
+        "stock": 2,
+        "image": "https://images.tokopedia.net/img/cache/900/hDjmkQ/2021/9/2/0b214f02-6e7a-4d99-b99b-fce68867d60d.jpg",
+      },
+      {
+        "id" : 2,
+        "name": "Mangga Harum Manis Super BUY 1pcs GET 1pcs",
+        "price": 25000,
+        "stock": 20,
+        "image": "https://images.tokopedia.net/img/cache/900/product-1/2020/1/9/35155574/35155574_b502839b-3b5d-4d0f-8cf3-e428d466a4d9_1000_1000",
+      },
+      {
+        "id" : 3,
+        "name": "Paket Ekonomis Mie Lemonilo",
+        "price": 28500,
+        "stock": 30,
+        "image": "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/8/30/6e6ac454-3f58-40cf-8756-a97e20594e5e.jpg",
+      },
+      {
+        "id" : 4,
+        "name": "HiLo Active Chocolate 1000gr",
+        "price": 99000,
+        "stock": 120,
+        "image": "https://images.tokopedia.net/img/cache/900/VqbcmM/2020/11/11/7666faf3-e933-40aa-bee1-cdf1f06690b3.jpg",
+      },
+      {
+        "id" : 5,
+        "name": "PRONAS Paket Kornet & Bumbu Nasi Goreng Bundling 5 pcs Free Canister",
+        "price": 78010,
+        "stock": 50,
+        "image": "https://images.tokopedia.net/img/cache/900/VqbcmM/2021/8/31/1e9bfb8c-8319-4a44-b343-2bd73e87d972.jpg",
+      },
+      {
+        "id" : 6,
+        "name": "Triple Pack: Tropicana Slim Hokkaido Cheese Cookies (5 Sch)",
+        "price": 56800,
+        "stock": 500,
+        "image": "https://images.tokopedia.net/img/cache/900/attachment/2021/10/4/18056894/18056894_f6b3b427-877a-4f45-91e7-31d2df32c2ee.jpg",
+      },
+      {
+        "id" : 7,
+        "name": "Roti Gandum Utuh Whole Wheat Bread",
+        "price": 26000,
+        "stock": 55,
+        "image": "https://images.tokopedia.net/img/cache/900/attachment/2021/10/4/18056894/18056894_8bdea1f3-b0a4-4ec8-8f72-4083535803b9.jpg",
+      },
+      {
+        "id" : 8,
+        "name": "AICE 3in1 Bucket Ice Cream Es Krim Ember 8L Eskrim",
+        "price": 149000,
+        "stock": 59,
+        "image": "https://images.tokopedia.net/img/cache/900/attachment/2021/10/4/18056894/18056894_68a3e9fa-d378-459e-9bab-f73c99a01b06.jpg",
+      },
+      {
+        "id" : 9,
+        "name": "Paket Hemat Nugget Best Seller Roku Bento",
+        "price": 130000,
+        "stock": 77,
+        "image": "https://images.tokopedia.net/img/cache/900/VqbcmM/2020/6/25/30fe84b6-241f-42cc-aac3-d98f01d20377.jpg",
+      },
+      {
+        "id" : 10,
+        "name": "Alpukat Mentega Sulawesi BUY 1pcs GET 1pcs",
+        "price": 49800,
+        "stock": 58,
+        "image": "https://images.tokopedia.net/img/cache/900/product-1/2020/1/9/35155574/35155574_722d5d33-2158-41c1-a975-36081428ca6f_1000_1000",
+      },
+]
+export default productList;

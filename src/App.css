@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+
+.App{
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-y: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color:#01ac0f;
+  height: 10vh;
+  color: #fff;
+  text-align: center;
+  z-index: 999;
+  /* box-shadow: 2px 0px 7px 0px #01ac0f; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1{
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header .cartIcon{
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.App-header .cartIcon span{
+  color: red;
+  font-size: 14px;
+}
+
+section{
+  margin-top: 7rem;
+  padding: 0 3rem;
+}
+
+section .row{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+}
+
+section .row .card{
+  box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
+  border-radius: 10px;
+  padding-bottom: 1rem;
+}
+
+section .row .card .product-info, section .itemCart{
+  padding: 10px;
+  font-size: 14px;
+}
+
+section .price{
+  font-weight: bold;
+  margin-top: 10px
+}
+
+section .name{
+  /* overflow: hidden; */
+    height: 37px;
+    /* text-overflow: ellipsis;  */
+    overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+
+section .row .card .product-info .add-cart{
+  padding: 9px;
+    margin-top: 15px;
+    width: 100%;
+    background: #01ac0f;
+    color: #fff;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+}
+
+section .row .card img{
+  aspect-ratio: 1/1;
+}
+
+section .productCartList{
+  bottom: 0;
+  position: absolute;
+  width: 40%;
+  max-width: 450px;
+  top: 10vh;
+  right: -500px;
+  background: #fff;
+  padding: 1rem;
+  overflow: auto;
+  transition: all ease-in 0.3s;
+}
+
+section .productCartList.active{
+  right: 0;
+}
+section .overlay{
+  opacity: 0;
+  visibility: hidden;
+  bottom: 0;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  left: 0;
+  background: #212221c9;
+  transition: all ease-in 0.3s;
+}
+
+section .overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+section .productCartList .listProductCart .itemCart{
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.flex-center-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
