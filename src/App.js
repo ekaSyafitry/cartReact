@@ -91,9 +91,7 @@ function App(props) {
     if(parseInt(event.target.value)) qty = parseInt(event.target.value)
     if (isNaN(qty)){
       qty = 0
-    }
-
-    
+    }  
     let cartList = [...cartItem]
     let indexObj = cartList.findIndex((obj => obj.id === id))
     if(type==='edit'){
@@ -129,14 +127,19 @@ function App(props) {
       else if(cartList[indexObj].qty <= 1 ){
         deleteCart(id, cartList)     
       }     
-    }
+    } 
   }
 
   const deleteCart = (idCart, cartList) => {
-    let deletedArray =  cartList.filter(({ id }) => id !== idCart);
-    setCartItem(deletedArray)
-    localStorage.setItem("cart", JSON.stringify(deletedArray))
-    setarrayCart(deletedArray)
+    if (window.confirm('Apakah kamu yakin ingin menghapus produk dari keranjang?')) {
+      let deletedArray =  cartList.filter(({ id }) => id !== idCart);
+      setCartItem(deletedArray)
+      localStorage.setItem("cart", JSON.stringify(deletedArray))
+      setarrayCart(deletedArray)   
+    } else {
+      return
+    }
+    
   }
 
   const updateIfNull = (e, id, list) =>{
@@ -168,7 +171,7 @@ function App(props) {
           </div>
         ))}
         </div>
-        <div className={showCart? "overlay active" : "overlay"}></div>
+        <div className={showCart? "overlay active" : "overlay"} onClick={ () => setShowCart(false)}></div>
         <div className={showCart? 'productCartList active' : 'productCartList'}>
           <div className="title flex-center-between">
           <h3>Keranjang Saya</h3>
