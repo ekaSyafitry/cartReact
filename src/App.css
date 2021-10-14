@@ -66,6 +66,12 @@ section .price{
   margin-top: 10px
 }
 
+section .stock{
+  font-size: 12px;
+}
+section .stock.empty{
+  color: red;
+}
 section .name{
   /* overflow: hidden; */
     height: 37px;

@@ -1,4 +1,4 @@
-let productList = [
+const productList = [
       {
         "id" : 1,
         "name": "Minyak Goreng Bimoli 2 Liter Pouch",
